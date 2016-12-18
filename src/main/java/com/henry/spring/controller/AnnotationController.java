@@ -1,6 +1,7 @@
 package com.henry.spring.controller;
 
 import com.henry.spring.bean.Cat;
+import com.henry.spring.bean.Dog;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,6 +39,16 @@ public class AnnotationController {
     public void saveCat(@RequestBody Cat cat) {
         logger.info(cat.getColor() + ";;;;" + cat.getName());
 
+    }
+
+    @RequestMapping(value = "/dog", method = RequestMethod.GET)
+    @ResponseBody
+    public Dog getDog(){
+        Dog dog = new Dog();
+        dog.setName("wangwang");
+        dog.setColor("black");
+
+        return dog;
     }
 
 }
